@@ -25,7 +25,8 @@ var PatientSchema = mongoose.Schema({
 	},
 	hospitalNumber: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	diseases: {
         type: Array,

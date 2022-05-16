@@ -51,8 +51,8 @@ $(document).ready(function() {
 		  $('#patients-waiting').dataTable({
 		       data: patientsWaitingTableConstructor,
 		       columns: [{
-		       	 title: "<span class=\"fa fa-hospital-o fa-fw\" style=\"color: black;\"></span>   " + "  № больницы",
-                     width: "20%"
+		       	 title: "<span class=\"fa fa-hospital-o fa-fw\" style=\"color: black;\"></span>   " + "  №",
+                     width: "10%"
 		       }, {
 		           title: "Имя пациента",
                      width: "60%"
@@ -85,7 +85,7 @@ $(document).ready(function() {
 		  $('#patients-in-hospital').DataTable({
    			   data: patientsInHospitalTableConstructor,
 		        columns:[{
-	                title: "<span class=\"fa fa-hospital-o fa-fw\" style=\"color: black;\"></span>   " + "  № больницы",
+	                title: "<span class=\"fa fa-hospital-o fa-fw\" style=\"color: black;\"></span>   " + "  №",
                      width: "10%"
 	            },{
 	                title: "Имя пациента",
