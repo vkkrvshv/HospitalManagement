@@ -21,10 +21,10 @@ router.post('/app/addpatient', (req, res) => {
     }
 
     if (_.isEmpty(req.body.firstName) || _.isEmpty(req.body.lastName) || _.isEmpty(req.body.hospitalNumber) || !isValidDate(dateOfBirth)) {
-        if (_.isEmpty(req.body.firstName)) req.flash('error_msg', 'Please enter the first name.');
-        if (_.isEmpty(req.body.lastName)) req.flash('error_msg', 'Please enter the last name.');
-        if (_.isEmpty(req.body.hospitalNumber)) req.flash('error_msg', 'Please enter the hospital number.');
-        if (!isValidDate(dateOfBirth)) req.flash('error_msg', 'The date is not valid.');
+        if (_.isEmpty(req.body.firstName)) req.flash('error_msg', 'Пожалуйста, введите имя.');
+        if (_.isEmpty(req.body.lastName)) req.flash('error_msg', 'Пожалуйста, введите фамилию.');
+        if (_.isEmpty(req.body.hospitalNumber)) req.flash('error_msg', 'Пожалуйста, введите номер больницы.');
+        if (!isValidDate(dateOfBirth)) req.flash('error_msg', 'Неверный формат даты.');
 
         res.status(400).redirect('/app/addpatient');
     } else {
