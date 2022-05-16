@@ -13,19 +13,16 @@ router.get('/app/addpatient', (req, res) => {
 });
 
 router.post('/app/addpatient', (req, res) => {
-    var PD = req.body.PD;
+    var PD = req.body.PD; //patient diseases
     var dateOfBirth = req.body.dateOfBirth;
-
     if (_.isEmpty(PD)) {
         PD = [];
     }
-
     if (_.isEmpty(req.body.firstName) || _.isEmpty(req.body.lastName) || _.isEmpty(req.body.hospitalNumber) || !isValidDate(dateOfBirth)) {
         if (_.isEmpty(req.body.firstName)) req.flash('error_msg', 'Пожалуйста, введите имя.');
         if (_.isEmpty(req.body.lastName)) req.flash('error_msg', 'Пожалуйста, введите фамилию.');
         if (_.isEmpty(req.body.hospitalNumber)) req.flash('error_msg', 'Пожалуйста, введите номер больницы.');
         if (!isValidDate(dateOfBirth)) req.flash('error_msg', 'Неверный формат даты.');
-
         res.status(400).redirect('/app/addpatient');
     } else {
         var sex = req.body.sex;
@@ -34,7 +31,6 @@ router.post('/app/addpatient', (req, res) => {
         } else {
             sex = false;
         }
-
         var patient = Patient({
             firstName: _.capitalize(req.body.firstName),
             lastName: _.capitalize(req.body.lastName),

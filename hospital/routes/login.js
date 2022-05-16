@@ -14,8 +14,6 @@ router.post('/login',
         failureRedirect: '/',
         failureFlash: true
     }), function(req, res) {
-        // If this function gets called, authentication was successful.
-        // `req.user` contains the authenticated user.
         res.redirect('/app');
     }
 );
@@ -27,7 +25,7 @@ passport.use(new LocalStrategy(
               throw err;
           }
           if (! user) {
-              return done(null, false, {message: "Unknown User"});
+              return done(null, false, {message: "Неизвестный пользователь"});
           }
 
           User.comparePassword(password, user.password, function (err, isMatch) {
@@ -37,7 +35,7 @@ passport.use(new LocalStrategy(
               if (isMatch) {
                   return done(null, user);
               } else {
-                  return done(null, false, 'Invalid password');
+                  return done(null, false, 'Неверный пароль');
               }
           });
       });

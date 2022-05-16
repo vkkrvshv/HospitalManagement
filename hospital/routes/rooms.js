@@ -33,7 +33,6 @@ router.get('/app/updateroom/:hospitalNumber/:futureRoom', (req, res) => {
             var futureRoomObject = data[1];
             var patient = data[2];
 
-
             if (rooms && patient && futureRoomObject && futureRoomObject["availability"] === false) {  // check that all the parameters were OK
                 if (patient.room !== 'noroom') {
                     for (var i = 0; i < rooms.length; ++i) {
@@ -88,7 +87,7 @@ router.get('/app/swappatients/:patientWithRoom/:patientWithoutRoom', (req, res) 
 
                 res.redirect('/app');
             } else {
-                throw Error("Bad request to change the room. Check the parameters.");
+                throw Error("Неверный запрос на смену палаты.");
             }
         }).catch((err) => {
             console.log(err);
@@ -99,7 +98,6 @@ router.get('/app/swappatients/:patientWithRoom/:patientWithoutRoom', (req, res) 
 router.post('/app/addroom', (req, res) => {
     var roomName = req.body.roomName;
 
-    // check that the name is a String
     if (_.isString(roomName) && !_.isNaN(roomName)) {
         var room = Room({
             name: roomName,

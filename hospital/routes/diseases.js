@@ -34,14 +34,14 @@ router.post('/app/adddisease', (req, res) => {
         });
 
         disease.save().then((disease) => {
-            console.log('Disease added');
+            console.log('Заболевание добавлено.');
             res.status(200).redirect('/app/systemsettings');
         }).catch((err) => {
             console.log(err);
             res.status(400).redirect('/app/systemsettings');
         });
     } else {
-        res.status(400).redirect('/app/systemsettings',{messages: req.flash('success_msg', 'Succesful test') });
+        res.status(400).redirect('/app/systemsettings',{messages: req.flash('success_msg', 'Успешно.') });
     }
 });
 
